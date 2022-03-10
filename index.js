@@ -32,6 +32,11 @@ function renderListToDom(list) {
   listNode.appendChild(fragment);
 }
 
+function renderNotFound () {
+  const listNode = document.getElementById('pass_list')
+  listNode.innerHTML = "Не знайдено"
+}
+
 function filterList(e) {
   e.preventDefault();
   const code = e.data?.toLowerCase().charCodeAt();
@@ -42,7 +47,7 @@ function filterList(e) {
       const n = num.toLowerCase().replace(" ", '')
       return n.includes(input)
     })
-    renderListToDom(newList)
+    newList.length? renderListToDom(newList) : renderNotFound()
   } else {
     const prev = e.target.value.slice(0, -1);
     document.getElementById('passport').value = prev
