@@ -36,7 +36,7 @@ function filterList(e) {
   e.preventDefault();
   const code = e.data?.toLowerCase().charCodeAt();
 
-  if (Number.isInteger(Number(e.data)) || code >= 1072 && code <= 1103 || e.data == null) {
+  if (Number.isInteger(Number(e.data)) || code >= 1072 && code <= 1103  || code === 1110 || code === 1111  || e.data == null) {
     const input = e.target.value.toLowerCase().replace(' ', '');
     const newList = window.ALL_LIST.filter(num => {
       const n = num.toLowerCase().replace(" ", '')
